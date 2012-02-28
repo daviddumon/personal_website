@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<!-- use the source, luke! -->
+
+<head>
+    <title>Entrepreneur and apprentice software craftsman</title>
+
+    <!-- LES METAAAAAAA -->
+
+    <link rel="stylesheet" href="css/common.css"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js?${buildtime}"></script>
+    <script type="text/javascript" src="js/ICanHaz.min.js"></script>
+    <script type="text/javascript" src="js/shell.js"></script>
+    <script type="text/javascript" src="js/home.js"></script>
+
+    <script id="prompt_line" type="text/html">
+        <p class="prompt element">/> {{command}}</p>
+    </script>
+
+    <script id="text_line" type="text/html">
+        {{#texts}}
+        <p class="line element">{{.}}&nbsp;</p>
+        {{/texts}}
+    </script>
+
+    <script id="drawing_line" type="text/html">
+        <pre class="element">{{drawing}}</pre>
+    </script>
+
+    <script id="link_line" type="text/html">
+        <p class="element"><a href="{{link}}" target="_blank" class="element">{{link_text}}</a></p>
+    </script>
+</head>
+<body>
+<a href="https://github.com/daviddumon/">
+    <img id="github" src="images/github.png" alt="Fork me on GitHub"/>
+</a>
+<div id="shell">
+</div>
+<input id="prompt" class="prompt" type="text" autofocus="autofocus"/>
+</body>
+</html>
