@@ -1,0 +1,55 @@
+body {
+    color: #FFFFFF;
+    background-color: #00355B;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+.prompt {
+    font-family: Courier;
+    font-size: 16px;
+    font-weight: bold;
+    color: #4DFF00;
+}
+
+.line {
+    font-family: Courier;
+    font-size: 14px;
+    color: #3EABFF;
+    padding-left: 30px;
+}
+
+.command {
+    font-family: Courier;
+    font-size: 14px;
+    color: #3EABFF;
+}
+
+pre {
+    font-size: 14px;
+    color: #3EABFF;
+    padding-left: 30px;
+}
+
+#prompt {
+    background-color: #00355B;
+    border: none;
+    outline: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
+#github {
+    position: fixed;
+    top: 0;
+    right: 0;
+    border: 0;
+}
+
+a {
+    cursor: pointer;
+    color: #FFFFFF;
+    padding-left: 30px;
+}
