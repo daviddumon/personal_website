@@ -8,7 +8,8 @@
 
     <!-- LES METAAAAAAA -->
 
-    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js?${buildtime}"></script>
     <script type="text/javascript" src="js/ICanHaz.min.js"></script>
     <script type="text/javascript" src="js/shell.js"></script>
@@ -22,6 +23,14 @@
         {{#texts}}
         <p class="line element">{{.}}&nbsp;</p>
         {{/texts}}
+    </script>
+
+    <script id="text_list_line" type="text/html">
+        <p class="line element">
+            {{#texts}}
+            [&nbsp;{{.}}&nbsp;]&nbsp;
+            {{/texts}}
+        </p>
     </script>
 
     <script id="drawing_line" type="text/html">
