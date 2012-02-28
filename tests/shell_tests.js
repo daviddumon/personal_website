@@ -114,5 +114,21 @@ shell_tests.prototype = {
         shell.execute("welcome");
 
         assertSame('-_-', document.getElementsByTagName("pre")[0].innerHTML);
+    },
+
+    test_can_get_command_history:function() {
+        var shell = new Shell();
+
+        shell.execute("welcome");
+        shell.execute("test");
+        shell.execute("yarg");
+
+        assertSame("yarg", shell.next_command_history());
+        assertSame("test", shell.next_command_history());
+        assertSame("welcome", shell.next_command_history());
+        assertSame("welcome", shell.next_command_history());
+        assertSame("test", shell.previous_command_history());
+        assertSame("yarg", shell.previous_command_history());
+        assertSame("yarg", shell.previous_command_history());
     }
 };

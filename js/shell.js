@@ -1,6 +1,8 @@
 var Shell = function () {
 
     var shell = $("#shell");
+    var history = [];
+    var history_index = 0;
 
     $.ajaxSetup({"error":function (XMLHttpRequest, textStatus, errorThrown) {
         console.log(textStatus);
@@ -49,7 +51,28 @@ var Shell = function () {
 
     is_not_hidden = function (command) {
         return (command !== "is_the_earth_hollow")
-            && (command !== "execute");
+            && (command !== "execute")
+            && (command !== "next_command_history")
+            && (command !== "previous_command_history");
+    };
+
+    add_to_history = function (command) {
+        history.push(command);
+        history_index = history.length;
+    };
+
+    history_next = function () {
+        if(history_index > 0) {
+            history_index--;
+        }
+        return history[history_index]
+    };
+
+    history_previous = function () {
+        if(history_index < history.length - 1) {
+            history_index++;
+        }
+        return history[history_index];
     };
 };
 
@@ -57,6 +80,7 @@ Shell.prototype = {
 
     execute:function (prompt_command) {
         append_prompt(prompt_command);
+        add_to_history(prompt_command);
         var command = getCommand(prompt_command);
 
         if (this[command] !== undefined) {
@@ -70,6 +94,14 @@ Shell.prototype = {
             var command_without_question_mark = command_without_spaces.replace(/_+\?/, '');
             return command_without_question_mark;
         }
+    },
+
+    next_command_history:function () {
+        return history_next();
+    },
+
+    previous_command_history:function () {
+        return history_previous();
     },
 
     commands:function () {
