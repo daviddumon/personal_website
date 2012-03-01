@@ -3,24 +3,27 @@ $(function () {
     shell.execute("welcome");
 
     $(window).keypress(function (event) {
-        if (!$("#prompt").is(":focus")) {
-            $("#prompt").focus();
+        if (!$("#prompt_input").is(":focus")) {
+            $("#prompt_input").focus();
             event.preventDefault();
             event.stopImmediatePropagation();
         }
     });
 
-    $("#prompt").keydown(function (event) {
+    $("#prompt_input").keydown(function (event) {
         if (isEnterKey(event)) {
-            shell.execute($("#prompt").val())
-            $("#prompt").val("");
-            $(window).scrollTop($("#prompt").offset().top);
+            shell.execute($("#prompt_input").val())
+            $("#prompt_input").val("");
+            setTimeout(function () {
+                $(window).scrollTop($(document).height());
+            }, 200);
+
         }
         if (isUpKey(event)) {
-            $("#prompt").val(shell.next_command_history());
+            $("#prompt_input").val(shell.next_command_history());
         }
         if (isDownKey(event)) {
-            $("#prompt").val(shell.previous_command_history());
+            $("#prompt_input").val(shell.previous_command_history());
         }
     });
 

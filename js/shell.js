@@ -45,6 +45,12 @@ var Shell = function () {
         shell.append(drawing_line);
     };
 
+    append_html = function(data) {
+        var html = {html_block:data};
+        var block = ich.html_block(html)
+        shell.append(block);
+    },
+
     unknown_command = function () {
         append_text("unknown command :(");
     };
@@ -62,14 +68,14 @@ var Shell = function () {
     };
 
     history_next = function () {
-        if(history_index > 0) {
+        if (history_index > 0) {
             history_index--;
         }
         return history[history_index]
     };
 
     history_previous = function () {
-        if(history_index < history.length - 1) {
+        if (history_index < history.length - 1) {
             history_index++;
         }
         return history[history_index];
@@ -92,7 +98,7 @@ Shell.prototype = {
         function getCommand(prompt_command) {
             var command_without_spaces = prompt_command.replace(/ /g, '_');
             var command_without_question_mark = command_without_spaces.replace(/_+\?/, '');
-            return command_without_question_mark;
+            return command_without_question_mark.toLowerCase();
         }
     },
 
@@ -144,6 +150,12 @@ Shell.prototype = {
             $.each(data, function (index, value) {
                 append_link(value.url, value.title);
             });
+        });
+    },
+
+    twitter:function () {
+        $.get("contents/twitter.html", function (data) {
+            append_html(data);
         });
     }
 };

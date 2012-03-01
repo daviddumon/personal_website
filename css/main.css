@@ -29,11 +29,12 @@ pre {
     padding-left: 30px;
 }
 
-#prompt {
+#prompt_input {
     position: relative;
     left: -3px;
     background-color: #00355B;
     border: none;
+    width: 80%;
     outline: none;
     font-family: Courier;
 }
@@ -52,7 +53,6 @@ button::-moz-focus-inner {
 a {
     cursor: pointer;
     color: #FFFFFF;
-    padding-left: 30px;
 }
 
 p {
@@ -64,4 +64,13 @@ p {
     font-size: 16px;
     font-weight: bold;
     color: #4DFF00;
+}
+
+.html_block {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+#shell {
+    margin-bottom: 1em;
 }

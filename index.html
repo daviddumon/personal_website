@@ -16,17 +16,17 @@
     <script type="text/javascript" src="js/home.js"></script>
 
     <script id="prompt_line" type="text/html">
-        <p class="prompt element"><span class="before_prompt">/&gt;&nbsp;</span>{{command}}</p>
+        <p class="prompt"><span class="before_prompt">/&gt;&nbsp;</span>{{command}}</p>
     </script>
 
     <script id="text_line" type="text/html">
         {{#texts}}
-        <p class="line element">{{.}}&nbsp;</p>
+        <p class="line">{{.}}&nbsp;</p>
         {{/texts}}
     </script>
 
     <script id="text_list_line" type="text/html">
-        <p class="line element">
+        <p class="line">
             {{#texts}}
             [&nbsp;{{.}}&nbsp;]&nbsp;
             {{/texts}}
@@ -34,12 +34,17 @@
     </script>
 
     <script id="drawing_line" type="text/html">
-        <pre class="element">{{drawing}}</pre>
+        <pre>{{drawing}}</pre>
     </script>
 
     <script id="link_line" type="text/html">
-        <p class="element"><a href="{{link}}" target="_blank" class="element">{{link_text}}</a></p>
+        <p><a href="{{link}}" target="_blank">{{link_text}}</a></p>
     </script>
+
+    <script id="html_block" type="text/html">
+        <div class="html_block">{{{html_block}}}</div>
+    </script>
+
 </head>
 <body>
 <a href="https://github.com/daviddumon/personal_website">
@@ -47,6 +52,6 @@
 </a>
 <div id="shell">
 </div>
-<span class="before_prompt">/&gt;&nbsp;</span><input id="prompt" class="prompt" type="text" autofocus="autofocus"/>
+<span class="before_prompt">/&gt;&nbsp;</span><input id="prompt_input" class="prompt" type="text" autofocus="autofocus"/>
 </body>
 </html>

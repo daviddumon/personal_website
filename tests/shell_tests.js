@@ -18,6 +18,7 @@ shell_tests.prototype = {
         ich.addTemplate('text_list_line', "<p class='line element'>{{#texts}}[&nbsp;{{.}}&nbsp;]&nbsp;{{/texts}}</p>");
         ich.addTemplate('link_line', "<p class='element'><a href='{{link}}' target='_blank' class='element'>{{link_text}}</a></p>");
         ich.addTemplate('drawing_line', "<pre class='element'>{{drawing}}</pre>");
+        ich.addTemplate('html_block', "<div class='html_block'>{{{html_block}}}</div>");
     },
 
     override_getjson:function (data) {
@@ -116,7 +117,7 @@ shell_tests.prototype = {
         assertSame('-_-', document.getElementsByTagName("pre")[0].innerHTML);
     },
 
-    test_can_get_command_history:function() {
+    test_can_get_command_history:function () {
         var shell = new Shell();
 
         shell.execute("welcome");
@@ -130,5 +131,23 @@ shell_tests.prototype = {
         assertSame("test", shell.previous_command_history());
         assertSame("yarg", shell.previous_command_history());
         assertSame("yarg", shell.previous_command_history());
+    },
+
+    test_can_add_html_block:function () {
+        this.override_get("<p>html</p>");
+        var shell = new Shell();
+
+        shell.execute("twitter");
+
+        assertSame('<p>html</p>', document.getElementsByClassName("html_block")[0].innerHTML);
+    },
+
+    test_can_understand_upper_case:function () {
+        this.override_get("<p>html</p>");
+        var shell = new Shell();
+
+        shell.execute("Twitter");
+
+        assertSame('<p>html</p>', document.getElementsByClassName("html_block")[0].innerHTML);
     }
 };
