@@ -2,8 +2,12 @@ $(function () {
     var shell = new Shell();
     shell.execute("welcome");
 
-    $(window).keypress(function(event) {
-        $("#prompt").focus();
+    $(window).keypress(function (event) {
+        if (!$("#prompt").is(":focus")) {
+            $("#prompt").focus();
+            event.preventDefault();
+            event.stopImmediatePropagation();
+        }
     });
 
     $("#prompt").keydown(function (event) {
