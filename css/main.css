@@ -30,13 +30,16 @@ pre {
 }
 
 #prompt {
+    position: relative;
+    left: -3px;
     background-color: #00355B;
     border: none;
     outline: none;
+    font-family: Courier;
 }
 
 button::-moz-focus-inner {
-  border: 0;
+    border: 0;
 }
 
 #github {
@@ -50,4 +53,15 @@ a {
     cursor: pointer;
     color: #FFFFFF;
     padding-left: 30px;
+}
+
+p {
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.before_prompt {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4DFF00;
 }

@@ -16,7 +16,7 @@
     <script type="text/javascript" src="js/home.js"></script>
 
     <script id="prompt_line" type="text/html">
-        <p class="prompt element">/> {{command}}</p>
+        <p class="prompt element"><span class="before_prompt">/&gt;&nbsp;</span>{{command}}</p>
     </script>
 
     <script id="text_line" type="text/html">
@@ -47,6 +47,6 @@
 </a>
 <div id="shell">
 </div>
-<input id="prompt" class="prompt" type="text" autofocus="autofocus"/>
+<span class="before_prompt">/&gt;&nbsp;</span><input id="prompt" class="prompt" type="text" autofocus="autofocus"/>
 </body>
 </html>
