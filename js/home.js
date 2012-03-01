@@ -2,6 +2,10 @@ $(function () {
     var shell = new Shell();
     shell.execute("welcome");
 
+    $(window).keypress(function(event) {
+        $("#prompt").focus();
+    });
+
     $("#prompt").keydown(function (event) {
         if (isEnterKey(event)) {
             shell.execute($("#prompt").val())
