@@ -20,22 +20,12 @@
         <p class="prompt"><span class="before_prompt">/&gt;&nbsp;</span>{{command}}</p>
     </script>
 
-    <script id="text_line" type="text/html">
-        {{#texts}}
-        <p class="line">{{.}}&nbsp;</p>
-        {{/texts}}
-    </script>
-
     <script id="text_list_line" type="text/html">
         <p class="line">
             {{#texts}}
             [&nbsp;{{.}}&nbsp;]&nbsp;
             {{/texts}}
         </p>
-    </script>
-
-    <script id="link_line" type="text/html">
-        <p><a href="{{link}}" target="_blank">{{link_text}}</a></p>
     </script>
 
     <script id="html_block" type="text/html">
