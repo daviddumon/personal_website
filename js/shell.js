@@ -107,6 +107,10 @@ Shell.prototype = {
         var texts = [];
         $.each(this.__proto__, function (command) {
             if (is_not_hidden(command)) {
+                if (command.indexOf('_') != -1) {
+                    command = command.replace(/_/g, ' ');
+                    command = command + " ?";
+                }
                 texts.push(command);
             }
         });
@@ -163,6 +167,20 @@ Shell.prototype = {
 
     languages:function () {
         $.get("contents/languages.html", function (data) {
+            append_html(data);
+            show_prompt();
+        });
+    },
+
+    what_do_you_like:function () {
+        $.get("contents/like.html", function (data) {
+            append_html(data);
+            show_prompt();
+        });
+    },
+
+    tools:function () {
+        $.get("contents/tools.html", function (data) {
             append_html(data);
             show_prompt();
         });
