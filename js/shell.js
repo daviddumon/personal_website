@@ -185,4 +185,15 @@ Shell.prototype = {
             show_prompt();
         });
     }
+
+    //communities
+    //identities
+    //sentences
+    //masters
+    //resume
+    //viadeo
+    //linkedin
+    //formation
+    //reading list
+    //book reviews
 };
