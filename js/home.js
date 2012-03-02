@@ -5,8 +5,6 @@ $(function () {
     $(window).keypress(function (event) {
         if (!$("#prompt_input").is(":focus")) {
             $("#prompt_input").focus();
-            event.preventDefault();
-            event.stopImmediatePropagation();
         }
     });
 

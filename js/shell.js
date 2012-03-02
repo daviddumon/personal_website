@@ -1,6 +1,7 @@
 var Shell = function () {
 
     var shell = $("#shell");
+    var prompt = $("#active_prompt");
     var history = [];
     var history_index = 0;
 
@@ -16,12 +17,6 @@ var Shell = function () {
         shell.append(prompt_line);
     };
 
-    append_text = function (text) {
-        var line_data = {texts:text.split(/\r\n|\r|\n/)};
-        var text_line = ich.text_line(line_data);
-        shell.append(text_line);
-    };
-
     append_text_list = function (texts) {
         var line_data = {
             texts:texts
@@ -30,29 +25,17 @@ var Shell = function () {
         shell.append(text_list_line);
     };
 
-    append_link = function (link, text) {
-        var link_data = {
-            link:link,
-            link_text:text
-        };
-        var link_line = ich.link_line(link_data);
-        shell.append(link_line);
-    };
-
-    append_drawing = function (data) {
-        var drawing_data = {drawing:data};
-        var drawing_line = ich.drawing_line(drawing_data);
-        shell.append(drawing_line);
-    };
-
-    append_html = function(data) {
+    append_html = function (data) {
         var html = {html_block:data};
-        var block = ich.html_block(html)
+        var block = ich.html_block(html);
         shell.append(block);
-    },
+    };
 
     unknown_command = function () {
-        append_text("unknown command :(");
+        $.get("contents/unknown.html", function (data) {
+            append_html(data);
+            show_prompt();
+        });
     };
 
     is_not_hidden = function (command) {
@@ -80,11 +63,20 @@ var Shell = function () {
         }
         return history[history_index];
     };
+
+    show_prompt = function () {
+        prompt.show();
+    };
+
+    hide_prompt = function () {
+        prompt.hide();
+    };
 };
 
 Shell.prototype = {
 
     execute:function (prompt_command) {
+        hide_prompt();
         append_prompt(prompt_command);
         add_to_history(prompt_command);
         var command = getCommand(prompt_command);
@@ -93,6 +85,7 @@ Shell.prototype = {
             this[command]();
         } else {
             unknown_command();
+            show_prompt();
         }
 
         function getCommand(prompt_command) {
@@ -118,44 +111,46 @@ Shell.prototype = {
             }
         });
         append_text_list(texts);
+        show_prompt();
     },
 
     quit:function () {
-        $.get("contents/quit.txt", function (data) {
-            append_text(data);
+        $.get("contents/quit.html", function (data) {
+            append_html(data);
+            show_prompt();
         });
     },
 
     clear:function () {
         $("#shell").empty();
+        show_prompt();
     },
 
     welcome:function () {
-        $.get("contents/ascii.txt", function (data) {
-            append_drawing(data);
-        });
-        $.get("contents/welcome.txt", function (data) {
-            append_text(data);
+        $.get("contents/welcome.html", function (data) {
+            append_html(data);
+            show_prompt();
         });
     },
 
     is_the_earth_hollow:function () {
-        $.get("contents/hollow.txt", function (data) {
-            append_text(data);
+        $.get("contents/hollow.html", function (data) {
+            append_html(data);
+            show_prompt();
         });
     },
 
     projects:function () {
-        $.getJSON("contents/projects.json", function (data) {
-            $.each(data, function (index, value) {
-                append_link(value.url, value.title);
-            });
+        $.get("contents/projects.html", function (data) {
+            append_html(data);
+            show_prompt();
         });
     },
 
     twitter:function () {
         $.get("contents/twitter.html", function (data) {
             append_html(data);
+            show_prompt();
         });
     }
 };

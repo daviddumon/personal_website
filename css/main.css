@@ -37,6 +37,7 @@ pre {
     width: 80%;
     outline: none;
     font-family: Courier;
+    padding: 0px;
 }
 
 button::-moz-focus-inner {

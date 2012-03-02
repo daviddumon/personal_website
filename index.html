@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <!-- use the source, luke! -->
 
@@ -7,6 +7,7 @@
     <title>Entrepreneur and apprentice software craftsman</title>
 
     <!-- LES METAAAAAAA -->
+    <meta charset="utf-8"/>
 
     <link rel="stylesheet" href="css/reset.css"/>
     <link rel="stylesheet" href="css/main.css"/>
@@ -33,10 +34,6 @@
         </p>
     </script>
 
-    <script id="drawing_line" type="text/html">
-        <pre>{{drawing}}</pre>
-    </script>
-
     <script id="link_line" type="text/html">
         <p><a href="{{link}}" target="_blank">{{link_text}}</a></p>
     </script>
@@ -50,8 +47,9 @@
 <a href="https://github.com/daviddumon/personal_website">
     <img id="github" src="images/github.png" alt="Fork me on GitHub"/>
 </a>
-<div id="shell">
+<div id="shell"></div>
+<div id="active_prompt">
+    <span class="before_prompt">/&gt;&nbsp;</span><input id="prompt_input" class="prompt" type="text" autofocus="autofocus"/>
 </div>
-<span class="before_prompt">/&gt;&nbsp;</span><input id="prompt_input" class="prompt" type="text" autofocus="autofocus"/>
 </body>
 </html>
