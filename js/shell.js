@@ -152,5 +152,19 @@ Shell.prototype = {
             append_html(data);
             show_prompt();
         });
+    },
+
+    contact:function () {
+        $.get("contents/contact.html", function (data) {
+            append_html(data);
+            show_prompt();
+        });
+    },
+
+    languages:function () {
+        $.get("contents/languages.html", function (data) {
+            append_html(data);
+            show_prompt();
+        });
     }
 };
