@@ -1,9 +1,0 @@
-server: http://localhost:9876
-
-load:
-- lib/jquery-1.7.1.min.js
-- ../js/ICanHaz.min.js
-- ../js/shell.js
-
-test:
-- shell_tests.js

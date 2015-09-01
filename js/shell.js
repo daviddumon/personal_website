@@ -32,10 +32,13 @@ var Shell = function () {
     };
 
     unknown_command = function () {
-        $.get("contents/unknown.html", function (data) {
-            append_html(data);
-            show_prompt();
-        });
+      $.ajax({
+        url: "contents/unknown.html",
+        dataType: "html"
+      }).done(function(data){
+        append_html(data);
+        show_prompt();
+      });
     };
 
     is_not_hidden = function (command) {
@@ -119,10 +122,13 @@ Shell.prototype = {
     },
 
     quit:function () {
-        $.get("contents/quit.html", function (data) {
-            append_html(data);
-            show_prompt();
-        });
+      $.ajax({
+        url: "contents/quit.html",
+        dataType: "html"
+      }).done(function(data){
+        append_html(data);
+        show_prompt();
+      });
     },
 
     clear:function () {
@@ -131,59 +137,84 @@ Shell.prototype = {
     },
 
     welcome:function () {
-        $.get("contents/welcome.html", function (data) {
-            append_html(data);
-            show_prompt();
-        });
+      $.ajax({
+        url: "contents/welcome.html",
+        dataType: "html",
+        processData: false
+      }).done(function(data){
+        append_html(data);
+        show_prompt();
+      });
     },
 
     is_the_earth_hollow:function () {
-        $.get("contents/hollow.html", function (data) {
-            append_html(data);
-            show_prompt();
-        });
+      $.ajax({
+        url: "contents/hollow.html",
+        dataType: "html"
+      }).done(function(data){
+        append_html(data);
+        show_prompt();
+      });
     },
 
     projects:function () {
-        $.get("contents/projects.html", function (data) {
-            append_html(data);
-            show_prompt();
-        });
+      $.ajax({
+        url: "contents/projects.html",
+        dataType: "html"
+      }).done(function(data){
+        append_html(data);
+        show_prompt();
+      });
     },
 
     twitter:function () {
-        $.get("contents/twitter.html", function (data) {
-            append_html(data);
-            show_prompt();
-        });
+      $.ajax({
+        url: "contents/twitter.html",
+        dataType: "html"
+      }).done(function(data){
+        append_html(data);
+        show_prompt();
+      });
     },
 
     contact:function () {
-        $.get("contents/contact.html", function (data) {
-            append_html(data);
-            show_prompt();
-        });
+      $.ajax({
+        url: "contents/contact.html",
+        dataType: "html"
+      }).done(function(data){
+        append_html(data);
+        show_prompt();
+      });
     },
 
     languages:function () {
-        $.get("contents/languages.html", function (data) {
-            append_html(data);
-            show_prompt();
-        });
+      $.ajax({
+        url: "contents/languages.html",
+        dataType: "html"
+      }).done(function(data){
+        append_html(data);
+        show_prompt();
+      });
     },
 
     what_do_you_like:function () {
-        $.get("contents/like.html", function (data) {
-            append_html(data);
-            show_prompt();
-        });
+      $.ajax({
+        url: "contents/like.html",
+        dataType: "html"
+      }).done(function(data){
+        append_html(data);
+        show_prompt();
+      });
     },
 
     tools:function () {
-        $.get("contents/tools.html", function (data) {
-            append_html(data);
-            show_prompt();
-        });
+      $.ajax({
+        url: "contents/tools.html",
+        dataType: "html"
+      }).done(function(data){
+        append_html(data);
+        show_prompt();
+      });
     }
 
     //communities
