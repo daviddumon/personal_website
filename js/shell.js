@@ -12,9 +12,11 @@ var Shell = function () {
     }});
 
     append_prompt = function (command) {
-        var prompt_data = {command:command};
-        var prompt_line = ich.prompt_line(prompt_data);
-        shell.append(prompt_line);
+        if(history.length > 0) {
+          var prompt_data = {command:command};
+          var prompt_line = ich.prompt_line(prompt_data);
+          shell.append(prompt_line);
+        }
     };
 
     append_text_list = function (texts) {
@@ -139,8 +141,7 @@ Shell.prototype = {
     welcome:function () {
       $.ajax({
         url: "contents/welcome.html",
-        dataType: "html",
-        processData: false
+        dataType: "html"
       }).done(function(data){
         append_html(data);
         show_prompt();

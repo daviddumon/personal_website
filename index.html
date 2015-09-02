@@ -4,7 +4,7 @@
 <!-- use the source, luke! -->
 
 <head>
-    <title>Entrepreneur and apprentice software craftsman</title>
+    <title>Code and Startups</title>
 
     <!-- LES METAAAAAAA -->
     <meta charset="utf-8"/>
@@ -17,19 +17,23 @@
     <script type="text/javascript" src="js/home.js"></script>
 
     <script id="prompt_line" type="text/html">
-        <p class="prompt"><span class="before_prompt">/&gt;&nbsp;</span>{{command}}</p>
+      <div>
+        <span class="before_prompt">/&gt;&nbsp;</span><input class="prompt" type="text" value="{{command}}" disabled=""/>
+      </div>
     </script>
 
     <script id="text_list_line" type="text/html">
+      <div class="html_block">
         <p class="line">
             {{#texts}}
             [&nbsp;{{.}}&nbsp;]&nbsp;
             {{/texts}}
         </p>
+      </div>
     </script>
 
     <script id="html_block" type="text/html">
-        <div class="html_block">{{{html_block}}}</div>
+        {{{html_block}}}
     </script>
 
 </head>

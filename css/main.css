@@ -3,41 +3,26 @@ body {
     background-color: #00355B;
     padding-right: 10%;
     padding-left: 10%;
-    font-family: Courier;
+    font-family: "Menlo";
+    color: #3EABFF;
+    font-size: 14px;
 }
 
 .prompt {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #4DFF00;
-}
-
-.line {
-    font-size: 14px;
-    color: #3EABFF;
-    padding-left: 30px;
-}
-
-.command {
-    font-size: 14px;
-    color: #3EABFF;
-}
-
-pre {
-    font-size: 14px;
-    color: #3EABFF;
-    padding-left: 30px;
-}
-
-#prompt_input {
     position: relative;
-    left: -3px;
     background-color: #00355B;
     border: none;
     width: 80%;
     outline: none;
-    font-family: Courier;
+    font-family: "Menlo";
     padding: 0px;
+}
+
+pre {
+    line-height: 150%;
 }
 
 button::-moz-focus-inner {
@@ -56,46 +41,22 @@ a {
     color: #3EABFF;
 }
 
-p {
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-
 .before_prompt {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     color: #4DFF00;
 }
 
 .html_block {
-    margin-bottom: 1em;
+    padding-left: 30px;
     margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 #shell {
-    margin-bottom: 1em;
+    padding-top: 1em;
 }
 
-ul {
-    font-size: 14px;
-    color: #3EABFF;
-    padding-left: 30px;
-    margin-bottom: 1em;
-    margin-top: 1em;
-}
-
-li {
-    float: left;
-}
-
-li:before {
-    content: " [ ";
-}
-
-li:after {
-    content: " ] ";
-}
-
-#active_prompt {
+div {
     clear: both;
 }
